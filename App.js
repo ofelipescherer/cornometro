@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Wellcome from './src/screens/Wellcome';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Aqui nasce a lenda</Text>
-      <StatusBar style="auto" />
+        <Wellcome />
     </View>
   );
 }
