@@ -1,19 +1,34 @@
 import React from 'react';
-import { StyleSheet , Text, View, Image, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet , Text, View, Image, TouchableOpacity, Button, StatusBar } from 'react-native';
 
 
 
 export default function Header(){
     return(
-        <Image source={require('../../../assets/app/black-icon.png')} style={styles.image}/>
+        <View style={styles.container}>
+            <Image source={require('../../../assets/app/white-icon.png')} style={styles.image}/>
+            <Text style={styles.text}>Cornometro</Text>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    image: {
-        marginTop: 50,
-        justifyContent: 'flex-start',
-        marginBottom: 40,
-        color: "#FFF",
+    container: {
+        paddingTop: StatusBar.currentHeight,
+        display: "flex",
+        flexDirection : 'row',
+        justifyContent : 'center',
+        alignItems: "baseline",
+        backgroundColor: "#316D49",
+        alignSelf: "stretch",
     },
+    image: {
+        marginTop: 30,
+        marginBottom: 30,
+    },
+    text: {
+        fontSize: 40,
+        color: '#FFF',
+        margin: 15,
+    }
 })

@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 11,
     borderColor: "#316D49",
+    alignSelf: "stretch",
   },
   image: {
       marginTop: 50,
