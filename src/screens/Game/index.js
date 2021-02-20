@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, Touchable, TouchableOpacity } from 'react-native';
 import Header from '../../Components/Header'
 import { StatusBar } from 'expo-status-bar';
 import Footer from '../../Components/Footer'
 
 export default function Game(){
-
+    const [hide, setHide] = useState(true)
     function generateRandomNumber(){
-        
+        setHide(!hide);
+        alert(hide)
     }
 
     return(
@@ -16,11 +17,14 @@ export default function Game(){
             <Header />
             <Text style={styles.text}>O quão corno(a) você é?</Text>
             <TouchableOpacity onPress={generateRandomNumber}>
-                <Image source={require('../../../assets/app/black-icon.png')} style={styles.image}/>
+                {
+                    hide ? <Image source={require('../../../assets/app/black-icon.png')} style={styles.image}/> : null
+                }
             </TouchableOpacity>
             <Text style={styles.text2}>Aperte no cornometro e descubra</Text>
             
         </ScrollView>
+        <StatusBar style="dark"></StatusBar>
         <Footer />
         </>
     )  
