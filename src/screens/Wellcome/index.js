@@ -1,38 +1,29 @@
-import React from 'react';
-
-import { useFonts, Inika_400Regular, Inika_700Bold } from '@expo-google-fonts/inika';
-import AppLoading from 'expo-app-loading';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import Icon from "react-native-vector-icons/FontAwesome"
+import React, { useDebugValue, useState } from 'react';
+import { StyleSheet , Text, View, Image, TouchableOpacity, Button } from 'react-native';
+import CheckBox from "../../Components/CheckBox";
 
 export default function Wellcome() {
-let [fontsLoaded] = useFonts({
-    Inika_400Regular,
-    Inika_700Bold,
-});
+  
+  const [check, setCheck] = useState(false)
 
-if (!fontsLoaded) {
-  return <AppLoading />;
-}
+  function handleCheck() {
+    setCheck(!check);
+  }
 
   return (
+    <>
     <View style={styles.container}>
     <Image source={require('../../../assets/app/black-icon.png')} style={styles.image}/>
       <Text style={styles.textTitle}>Atenção!!!</Text>
       <Text style={styles.text}>ESTE É UM APLICATIVO PARA BRINCAR E NÃO DEVE SER LEVADO A SÉRIO</Text>
-
-      <View style={styles.wrapperCheck}>
-        <TouchableOpacity style={styles.checkBox}>
-          <Icon name="check" size={40} color="#FFFF" /> 
-        </TouchableOpacity>
-        <Text style={styles.labelCheckBox}>Entendido</Text>
-      </View>
+      <CheckBox label="Entendido" onChange={handleCheck} value={check}></CheckBox>
+      <TouchableOpacity style={styles.button} disabled={!check}>
+        <Text style={styles.buttonText}>COMEÇAR</Text>
+      </TouchableOpacity>
     </View>
+    </>
   );
 }
-
-
-
 
 
 const styles = StyleSheet.create({
@@ -40,40 +31,32 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#D8E7DE',
     alignItems: 'center',
-    fontFamily: 'Inika_700Bold',
-    marginTop: 50,
-    margin: 15,
     borderWidth: 11,
     borderColor: "#316D49",
   },
   image: {
+      marginTop: 50,
       justifyContent: 'flex-start',
       marginBottom: 40,
   },
   textTitle: {
-    fontFamily: 'Inika_700Bold',
     fontSize: 60,
   },
   text: {
-    fontFamily: 'Inika_400Regular',
+    margin: 15,
     fontSize: 35,
     textAlign: 'center',
   },
-  wrapperCheck: {
-    flexDirection: "row",
-    alignItems: "center"
+  button: {
+    margin: 30,
+    backgroundColor: "#316D49",
+    borderRadius: 20,
   },
-  checkBox: {
-    width: 50,
-    height: 50,
-    borderWidth: 5,
-    margin: 15,
-    justifyContent: "center",
-    alignItems: "center",
-    
+  buttonText: {
+    fontSize: 40,
+    margin: 20,
+    color: "#FFF",
   },
-  labelCheckBox: {
-    fontFamily: 'Inika_700Bold',
-    fontSize: 35,
-  },
+
 });
+

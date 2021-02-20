@@ -2,11 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Wellcome from './src/screens/Wellcome';
+import Game from './src/screens/Game';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <Wellcome />
+        <Game />
+        {/*<Wellcome />*/}
     </View>
   );
 }
