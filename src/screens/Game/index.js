@@ -6,9 +6,12 @@ import Footer from '../../Components/Footer'
 
 export default function Game(){
     const [hide, setHide] = useState(true)
+    const [randomPercent, setRandomPercent] = useState(0)
+
     function generateRandomNumber(){
         setHide(!hide);
-        alert(hide)
+        let randomNumber = Math.floor(Math.random() * 101)
+        setRandomPercent(randomNumber)
     }
 
     return(
@@ -20,6 +23,10 @@ export default function Game(){
                 {
                     hide ? <Image source={require('../../../assets/app/black-icon.png')} style={styles.image}/> : null
                 }
+                {
+                    !hide ? <Text style={styles.percentText}>{randomPercent}%</Text> : null
+                }
+                
             </TouchableOpacity>
             <Text style={styles.text2}>Aperte no cornometro e descubra</Text>
             
@@ -54,5 +61,9 @@ const styles = StyleSheet.create({
         margin: 20,
         height: 200,
         width: 205,
+    },
+    percentText: {
+        marginTop: 20,
+        fontSize: 100,
     }
 })

@@ -40,6 +40,7 @@ wrapperCheck: {
     margin: 15,
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
     
   },
   labelCheckBox: {
