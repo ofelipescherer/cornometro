@@ -1,9 +1,13 @@
 import React, { useDebugValue, useState } from 'react';
 import { StyleSheet , Text, View, Image, TouchableOpacity, Button } from 'react-native';
 import CheckBox from "../../Components/CheckBox";
+import { StatusBar } from 'expo-status-bar';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Wellcome() {
   
+  const navigation = useNavigation();
+
   const [check, setCheck] = useState(false)
 
   function handleCheck() {
@@ -11,17 +15,15 @@ export default function Wellcome() {
   }
 
   return (
-    <>
     <View style={styles.container}>
     <Image source={require('../../../assets/app/black-icon.png')} style={styles.image}/>
       <Text style={styles.textTitle}>Atenção!!!</Text>
       <Text style={styles.text}>ESTE É UM APLICATIVO PARA BRINCAR E NÃO DEVE SER LEVADO A SÉRIO</Text>
       <CheckBox label="Entendido" onChange={handleCheck} value={check}></CheckBox>
-      <TouchableOpacity style={styles.button} disabled={!check}>
+      <TouchableOpacity style={styles.button} disabled={!check} onPress={() => navigation.navigate('Game')}>
         <Text style={styles.buttonText}>COMEÇAR</Text>
       </TouchableOpacity>
     </View>
-    </>
   );
 }
 

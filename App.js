@@ -3,7 +3,8 @@ import  React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Wellcome from './src/screens/Wellcome';
 import Game from './src/screens/Game';
-
+import Routes from './src/Routes';
+import Header from './src/Components/Header';
 
 export default function App() {
 
@@ -16,21 +17,13 @@ export default function App() {
   const [screenState, setScreenState] = React.useState(screens.WELLCOME);
 
   function changeScreen(){
-    setScreenState(screens.GAME)
+    setScreenState()
   }
 
   return (
     <View style={styles.container}>
-        {screenState === screens.WELLCOME && (
-          <Wellcome />
-        )}
-        {screenState === screens.GAME && (
-          <Game />
-        )}
-        {screenState === screens.RESULT && (
-          <Text>RESULT</Text>
-        )}
-        
+      <Routes></Routes>
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -39,7 +32,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#D8E7DE',
-    alignItems: 'center',
-    justifyContent: 'center',
+
   },
 });
