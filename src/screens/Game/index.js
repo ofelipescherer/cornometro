@@ -3,15 +3,27 @@ import { StyleSheet, Text, View, Image, ScrollView, Touchable, TouchableOpacity 
 import Header from '../../Components/Header'
 import { StatusBar } from 'expo-status-bar';
 import Footer from '../../Components/Footer'
+import { useNavigation } from '@react-navigation/native';
 
 export default function Game(){
     const [hide, setHide] = useState(true)
     const [randomPercent, setRandomPercent] = useState(0)
+    const navigation = useNavigation();
 
     function generateRandomNumber(){
         setHide(!hide);
         let randomNumber = Math.floor(Math.random() * 101)
         setRandomPercent(randomNumber)
+
+        //Depois de certo tempo, ele troca de tela. (Tempo de animação dos números)
+        setTimeout(() => {
+            redirectToResult()
+        }, 2000)
+        
+    }
+
+    function redirectToResult(){
+        navigation.navigate('Result')
     }
 
     return(
@@ -19,9 +31,13 @@ export default function Game(){
         <ScrollView contentContainerStyle={styles.container}>
             <Header />
             <Text style={styles.text}>O quão corno(a) você é?</Text>
-            <TouchableOpacity onPress={generateRandomNumber}>
+            {/*Usando a propria variavel hide para desabilitar o botão*/}
+            <TouchableOpacity onPress={generateRandomNumber} disabled={!hide}>
                 {
-                    hide ? <Image source={require('../../../assets/app/black-icon.png')} style={styles.image}/> : null
+                    hide ? <Image 
+                    source={require('../../../assets/app/black-icon.png')} 
+                    style={styles.image} 
+                    /> : null
                 }
                 {
                     !hide ? <Text style={styles.percentText}>{randomPercent}%</Text> : null

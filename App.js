@@ -5,20 +5,9 @@ import Wellcome from './src/screens/Wellcome';
 import Game from './src/screens/Game';
 import Routes from './src/Routes';
 import Header from './src/Components/Header';
+import Result from './src/screens/Result';
 
 export default function App() {
-
-  const screens = {
-    WELLCOME: 'WELLCOME',
-    GAME: 'GAME',
-    RESULT: 'RESULT'
-  }
-
-  const [screenState, setScreenState] = React.useState(screens.WELLCOME);
-
-  function changeScreen(){
-    setScreenState()
-  }
 
   return (
     <View style={styles.container}>

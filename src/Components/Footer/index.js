@@ -9,6 +9,7 @@ export default function Footer(){
             <Text style={{fontSize: 14, color: '#FFF', marginTop: 15,}}>Cornometro</Text>
             <Text style={{fontSize: 14, color: '#FFF', marginBottom: 15, marginTop: 10}}>Made by Felipe with ❤️ from BRAZIL</Text>
         </View>
+
     )
 }
 

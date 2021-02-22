@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack'
 import Wellcome from '../src/screens/Wellcome/index.js';
 import Game from '../src/screens/Game';
+import Result from '../src/screens/Result';
 import React from 'react';
 
 
@@ -16,6 +17,7 @@ function Routes(){
             headerShown: false
           }}
         >
+        <Stack.Screen name='Result' component={Result} />
         <Stack.Screen name='Wellcome' component={Wellcome} />
         <Stack.Screen name='Game' component={Game} />
         </Stack.Navigator>
