@@ -1,6 +1,6 @@
 # Cornometro
 
-## Esse é meu primeiro aplicativo. Foi feito para testar minhas habilidades em react, além de aprender a usar o expo. Sinta-se a vontade para olhar e apontar erros no meu código
+Esse é meu primeiro aplicativo. Foi feito para testar minhas habilidades em react, além de aprender a usar o expo. Sinta-se a vontade para olhar e apontar erros no meu código
 
 # Iniciar o aplicativo via download do git  
 
