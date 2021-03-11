@@ -22,3 +22,12 @@ expo start
 
 [fonte](https://tecadmin.net/powershell-running-scripts-is-disabled-system) 
 
+
+
+#Rodar o programa localmente
+
+```
+git clone url
+npm install
+expo start
+```
