@@ -17,9 +17,9 @@ function Routes(){
             headerShown: false
           }}
         >
-        <Stack.Screen name='Result' component={Result} />
         <Stack.Screen name='Wellcome' component={Wellcome} />
         <Stack.Screen name='Game' component={Game} />
+        <Stack.Screen name='Result' component={Result} />
         </Stack.Navigator>
     </NavigationContainer>
     )

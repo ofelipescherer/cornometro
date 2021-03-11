@@ -3,17 +3,31 @@ import { StyleSheet, Text, View, Image, ScrollView, Touchable, TouchableOpacity 
 import Header from '../../Components/Header'
 import { StatusBar } from 'expo-status-bar';
 import Footer from '../../Components/Footer'
-import Data, { data } from '../../Data'
+import { data } from '../../Data'
+import { useEffect } from 'react';
 
 
-export default function Result(){
+export default function Result({ route }){
+    const { number } = route.params;
 
+    const [resultData, setResultDate] = useState(0) 
+
+    useEffect(() => {
+        for(let i = 0; i < data.results.length; i++){
+            
+            if(number >= data.results[i].min && number <= data.results[i].max){
+                console.log(i)
+                setResultDate(i)
+                return
+            }
+        }
+    }, [])
 
     return(
         <>
         <ScrollView contentContainerStyle={styles.container}>
             <Header />
-            <Image source={data.results[1].image} style={styles.image}/>
+            <Image source={data.results[resultData].image} style={styles.image}/>
 
             <Text>Salve</Text>
         </ScrollView>

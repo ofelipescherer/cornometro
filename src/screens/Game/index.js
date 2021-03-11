@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, Touchable, TouchableOpacity } from 'react-native';
 import Header from '../../Components/Header'
 import { StatusBar } from 'expo-status-bar';
@@ -14,17 +14,19 @@ export default function Game(){
         setHide(!hide);
         let randomNumber = Math.floor(Math.random() * 101)
         setRandomPercent(randomNumber)
+    }
 
+    function redirectToResult(){
+        navigation.navigate('Result', {number : randomPercent})
+    }
+
+    useEffect(() => {
         //Depois de certo tempo, ele troca de tela. (Tempo de animação dos números)
         setTimeout(() => {
             redirectToResult()
         }, 2000)
-        
-    }
 
-    function redirectToResult(){
-        navigation.navigate('Result')
-    }
+    }, [randomPercent])
 
     return(
         <>
